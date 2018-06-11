@@ -1,7 +1,7 @@
 const http = require('http')
 const ejs = require('ejs')
 const express = require('express')
-const app = module.exports = express()
+const app = express()
 const bodyParser = require('body-parser')
 const port = 3000
 const college = require('./axios.js')
@@ -26,8 +26,9 @@ app.get('/', (req, res) => {
 
 app.post('/', (req, res) => {
   var college_name_url = encodeURI(req.body.college_name)
-  module.exports.college_name_url = college_name_url
-  console.log(college_name_url)
+  college.myAxiosCall(college_name_url).then((result) => {
+    res.render('college', {college: result})
+  })
 })
 
 app.get('/college', (req, res) => {
