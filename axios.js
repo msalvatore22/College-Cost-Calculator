@@ -1,5 +1,8 @@
 const axios = require('axios')
+const app = require('./app')
 const api_key = process.env.GOV_DATA_API_KEY
+
+console.log(module)
 
 class College {
   constructor(id, name, state, city, size, women, men, tuition_in, tuition_out, avg_cost, admission_rate, sat,completion_rate, default_rate, percent_loan, percent_pell, loan_principal, median_debt_1, median_debt_2, median_debt_3){
@@ -28,7 +31,7 @@ class College {
 }
 
 module.exports.myAxiosCall = 
- axios.get(`https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=New%20York%20University&_fields=id,school.name,school.state,school.city,2015.student.size,2015.student.demographics.women,2015.student.demographics.men,2015.cost.tuition.in_state,2015.cost.tuition.out_of_state,2015.cost.attendance.academic_year,2015.admissions.admission_rate.overall,2015.admissions.sat_scores.average.overall,2015.completion.rate_suppressed.four_year,2015.repayment.3_yr_default_rate,2015.aid.students_with_any_loan,2015.student.students_with_pell_grant,2015.aid.loan_principal,2015.aid.median_debt.income.0_30000,2015.aid.median_debt.income.30001_75000,2015.aid.median_debt.income.greater_than_75000&api_key=${api_key}`).then((response) => {
+ axios.get(`https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=new%20york%20university&_fields=id,school.name,school.state,school.city,2015.student.size,2015.student.demographics.women,2015.student.demographics.men,2015.cost.tuition.in_state,2015.cost.tuition.out_of_state,2015.cost.attendance.academic_year,2015.admissions.admission_rate.overall,2015.admissions.sat_scores.average.overall,2015.completion.rate_suppressed.four_year,2015.repayment.3_yr_default_rate,2015.aid.students_with_any_loan,2015.student.students_with_pell_grant,2015.aid.loan_principal,2015.aid.median_debt.income.0_30000,2015.aid.median_debt.income.30001_75000,2015.aid.median_debt.income.greater_than_75000&api_key=${api_key}`).then((response) => {
   var college = new College (
     response.data.results[1].id,
     response.data.results[1]['school.name'],
