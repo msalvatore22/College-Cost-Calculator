@@ -7,13 +7,22 @@
 </head>
 <body>
     <%- include('partials/navbar') %>
-    <h1>College Cost Calulcator</h1>
-
-    <div class="active-green-3 active-green-4 mb-4">
-      <form action="/" method="POST">
-        <input name="college_name" class="form-control" type="text" placeholder="Search by college name." aria-label="Search">
-        <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Search</button>
-      </form>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-header"><%= college.name %></h5>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">State: <%= college.state %></li>
+        <li class="list-group-item">City: <%= college.city %></li>
+        <li class="list-group-item">College Size: <%= college.size %></li>
+        <li class="list-group-item">Tuition In-State: <%= college.tuition_in %></li>
+        <li class="list-group-item">Tuition Out-of-State: <%= college.tuition_out %></li>
+        <li class="list-group-item">Average cost of attendance: <%= college.avg_cost %></li>
+    
+      </ul>
+      <div class="card-body">
+        <a href="#" class="btn btn-primary">Run cost calculation</a>
+      </div>
     </div>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
