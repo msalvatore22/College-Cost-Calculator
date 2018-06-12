@@ -4,6 +4,7 @@
   "description": "College Cost Calculator",
   "main": "app.js",
   "scripts": {
+    "start-dev": "./node_modules/.bin/nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Salvatore",
@@ -12,6 +13,7 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "ejs": "^2.6.1",
-    "express": "^4.16.3"
+    "express": "^4.16.3",
+    "nodemon": "^1.17.5"
   }
 }

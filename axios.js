@@ -1,6 +1,20 @@
 const axios = require('axios')
 const api_key = process.env.GOV_DATA_API_KEY
 
+class CollegeList {
+  constructor(){
+    this.all = []
+  }
+  add(college) {
+    this.all.push(college)
+  } 
+  
+  clearArray() {
+    this.all = []
+  }
+
+}
+
 class College {
   constructor(id, name, state, city, size, women, men, tuition_in, tuition_out, avg_cost, admission_rate, sat,completion_rate, default_rate, percent_loan, percent_pell, loan_principal, median_debt_1, median_debt_2, median_debt_3){
     this.id = id
@@ -25,11 +39,36 @@ class College {
     this.median_debt_3 = median_debt_3
 
   }
+  
 }
+
+var collegeList = new CollegeList
 
 module.exports.myAxiosCall = (college_name_url) => {
  return axios.get(`https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=${college_name_url}&_fields=id,school.name,school.state,school.city,2015.student.size,2015.student.demographics.women,2015.student.demographics.men,2015.cost.tuition.in_state,2015.cost.tuition.out_of_state,2015.cost.attendance.academic_year,2015.admissions.admission_rate.overall,2015.admissions.sat_scores.average.overall,2015.completion.rate_suppressed.four_year,2015.repayment.3_yr_default_rate,2015.aid.students_with_any_loan,2015.student.students_with_pell_grant,2015.aid.loan_principal,2015.aid.median_debt.income.0_30000,2015.aid.median_debt.income.30001_75000,2015.aid.median_debt.income.greater_than_75000&api_key=${api_key}`).then((response) => {
-  var college = new College (
+  var college1 = new College (
+    response.data.results[0].id,
+    response.data.results[0]['school.name'],
+    response.data.results[0]['school.state'],
+    response.data.results[0]['school.city'],
+    response.data.results[0]['2015.student.size'],
+    response.data.results[0]['2015.student.demographics.women'],
+    response.data.results[0]['2015.student.demographics.men'],
+    response.data.results[0]['2015.cost.tuition.in_state'],
+    response.data.results[0]['2015.cost.tuition.out_of_state'],
+    response.data.results[0]['2015.cost.attendance.academic_year'],
+    response.data.results[0]['2015.admissions.admission_rate.overall'],
+    response.data.results[0]['2015.admissions.sat_scores.average.overall'],
+    response.data.results[0]['2015.completion.rate_suppressed.four_year'],
+    response.data.results[0]['2015.repayment.3_yr_default_rate'],
+    response.data.results[0]['2015.aid.students_with_any_loan'],
+    response.data.results[0]['2015.student.students_with_pell_grant'],
+    response.data.results[0]['2015.aid.loan_principal'],
+    response.data.results[0]['2015.aid.median_debt.income.0_30000'],
+    response.data.results[0]['2015.aid.median_debt.income.30001_75000'],
+    response.data.results[0]['2015.aid.median_debt.income.greater_than_75000']
+  )
+  var college2 = new College (
     response.data.results[1].id,
     response.data.results[1]['school.name'],
     response.data.results[1]['school.state'],
@@ -51,7 +90,81 @@ module.exports.myAxiosCall = (college_name_url) => {
     response.data.results[1]['2015.aid.median_debt.income.30001_75000'],
     response.data.results[1]['2015.aid.median_debt.income.greater_than_75000']
   )
-  return college
+  var college3 = new College (
+    response.data.results[2].id,
+    response.data.results[2]['school.name'],
+    response.data.results[2]['school.state'],
+    response.data.results[2]['school.city'],
+    response.data.results[2]['2015.student.size'],
+    response.data.results[2]['2015.student.demographics.women'],
+    response.data.results[2]['2015.student.demographics.men'],
+    response.data.results[2]['2015.cost.tuition.in_state'],
+    response.data.results[2]['2015.cost.tuition.out_of_state'],
+    response.data.results[2]['2015.cost.attendance.academic_year'],
+    response.data.results[2]['2015.admissions.admission_rate.overall'],
+    response.data.results[2]['2015.admissions.sat_scores.average.overall'],
+    response.data.results[2]['2015.completion.rate_suppressed.four_year'],
+    response.data.results[2]['2015.repayment.3_yr_default_rate'],
+    response.data.results[2]['2015.aid.students_with_any_loan'],
+    response.data.results[2]['2015.student.students_with_pell_grant'],
+    response.data.results[2]['2015.aid.loan_principal'],
+    response.data.results[2]['2015.aid.median_debt.income.0_30000'],
+    response.data.results[2]['2015.aid.median_debt.income.30001_75000'],
+    response.data.results[2]['2015.aid.median_debt.income.greater_than_75000']
+  )
+  var college4 = new College (
+    response.data.results[3].id,
+    response.data.results[3]['school.name'],
+    response.data.results[3]['school.state'],
+    response.data.results[3]['school.city'],
+    response.data.results[3]['2015.student.size'],
+    response.data.results[3]['2015.student.demographics.women'],
+    response.data.results[3]['2015.student.demographics.men'],
+    response.data.results[3]['2015.cost.tuition.in_state'],
+    response.data.results[3]['2015.cost.tuition.out_of_state'],
+    response.data.results[3]['2015.cost.attendance.academic_year'],
+    response.data.results[3]['2015.admissions.admission_rate.overall'],
+    response.data.results[3]['2015.admissions.sat_scores.average.overall'],
+    response.data.results[3]['2015.completion.rate_suppressed.four_year'],
+    response.data.results[3]['2015.repayment.3_yr_default_rate'],
+    response.data.results[3]['2015.aid.students_with_any_loan'],
+    response.data.results[3]['2015.student.students_with_pell_grant'],
+    response.data.results[3]['2015.aid.loan_principal'],
+    response.data.results[3]['2015.aid.median_debt.income.0_30000'],
+    response.data.results[3]['2015.aid.median_debt.income.30001_75000'],
+    response.data.results[3]['2015.aid.median_debt.income.greater_than_75000']
+  )
+  var college5 = new College (
+    response.data.results[4].id,
+    response.data.results[4]['school.name'],
+    response.data.results[4]['school.state'],
+    response.data.results[4]['school.city'],
+    response.data.results[4]['2015.student.size'],
+    response.data.results[4]['2015.student.demographics.women'],
+    response.data.results[4]['2015.student.demographics.men'],
+    response.data.results[4]['2015.cost.tuition.in_state'],
+    response.data.results[4]['2015.cost.tuition.out_of_state'],
+    response.data.results[4]['2015.cost.attendance.academic_year'],
+    response.data.results[4]['2015.admissions.admission_rate.overall'],
+    response.data.results[4]['2015.admissions.sat_scores.average.overall'],
+    response.data.results[4]['2015.completion.rate_suppressed.four_year'],
+    response.data.results[4]['2015.repayment.3_yr_default_rate'],
+    response.data.results[4]['2015.aid.students_with_any_loan'],
+    response.data.results[4]['2015.student.students_with_pell_grant'],
+    response.data.results[4]['2015.aid.loan_principal'],
+    response.data.results[4]['2015.aid.median_debt.income.0_30000'],
+    response.data.results[4]['2015.aid.median_debt.income.30001_75000'],
+    response.data.results[4]['2015.aid.median_debt.income.greater_than_75000']
+  )
+    collegeList.clearArray()
+
+    collegeList.add(college1)
+    collegeList.add(college2)
+    collegeList.add(college3)
+    collegeList.add(college4)
+    collegeList.add(college5)
+
+  return collegeList
 
 }).catch((error) => {
   console.log(error)
