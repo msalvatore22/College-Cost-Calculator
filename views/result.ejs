@@ -6,11 +6,19 @@
 </head>
 <body>
     <%- include('partials/navbar') %>
-    <h1>College Cost Calulcator</h1>
-    <%= result[0] %>
-    <%= result[0] * 4 %>
-    <%= (result[0] * 4) - 31000 %>
 
+    <div class="container">
+        <div class="row justify-content-center">
+        <div class="card" style="width: 50rem;">
+          <ul class="list-group">
+              <h6 class="card-header">Here is your cost breakdown.</h6>
+              <div class="card-body">
+                  <li class="list-group-item first-item">What you will owe each year: <%= result[0] %></li>
+                  <li class="list-group-item">What you will owe after 4 years (without interest): <%= result[0] * 4 %></li>
+                  <li class="list-group-item last-item">Private loan amount (without interest): <%= (result[0] * 4) - 31000 %></li>
+              </div>
+          </div>
+        </div>
     
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

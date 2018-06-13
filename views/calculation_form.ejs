@@ -7,27 +7,36 @@
 </head>
 <body>
     <%- include('partials/navbar') %>
+    
+    <div class="container">
+          <div class="active-green-3 active-green-4 mb-4 calc-form">
+            <form action="/result" method="POST" id="calculation">
+              <h4 class="calc-heading"><%= college_info[0] %></h4>
+              <input type="hidden" value="<%= college_info[0] %>">
+              <label for="tuition">Select In-State or Out-of-State Tuition.</label><br>
+              <input id="tuition" name="college_name" type="hidden" value="<%= college_info[0] %>">
+              In-State Tuition: <%= college_info[1] %>
+              <input required type="radio" name="tuition" value=<%= college_info[1] %>>
+              Out-of-State Tuition: <%= college_info[2] %>
+              <input type="radio" name="tuition" value=<%= college_info[2] %>><br>
+              
+              <label for="scholarship">Enter total scholarships, grant money, and family-income amount you will put towards the cost of attendence per year.</label>
+              <input id="scholarship" name="scholarship" class="form-control" type="number" placeholder="Enter total here." aria-label="scholarship" required>
+              
+              <label for="living_expenses">Enter the estimated ammount you expect to spend for living on and/or off-campus per year.</label>
+              <input id="living_expenses" name="living_expenses" class="form-control" type="number" placeholder="Enter living expense total here." aria-label="living_expenses" required>
+              
+              <label for="books">Enter the estimated ammount you expect to spend on books per year.</label>
+              <input id="books" name="books" class="form-control" type="number" placeholder="Enter books total here." aria-label="book" required>
 
-    <div class="active-green-3 active-green-4 mb-4">
-      <form action="/result" method="POST" id="calculation">
-        <h4><%= college_info[0] %></h4>
-        <input name="college_name" type="hidden" value="<%= college_info[0] %>">
-        In-State Tuition: <%= college_info[1] %>
-        <input type="radio" name="tuition" value=<%= college_info[1] %>><br>
-        Out-of-State Tuition: <%= college_info[2] %>
-        <input type="radio" name="tuition" value=<%= college_info[2] %>><br>
-        
-        <input name="scholarship" class="form-control" type="number" placeholder="Enter total scholarship/grant/family-income amount you will put towards the cost of attendence per year." aria-label="scholarship" required>
+              <label for="food">Enter the estimated ammount you expect to spend on food per year (including meal-plans if any).</label>
+              <input id="food" name="food" class="form-control" type="number" placeholder="Enter food total here." aria-label="food" required>
 
-        <input name="living_expenses" class="form-control" type="number" placeholder="Enter the estimated ammount you expect to spend for living on/off-campus per year." aria-label="living_expenses" required>
-
-        <input name="books" class="form-control" type="number" placeholder="Enter the estimated ammount you expect to spend on books per year." aria-label="book" required>
-
-        <input name="food" class="form-control" type="number" placeholder="Enter the estimated ammount you expect to spend on food per year (including meal-plans if any)" aria-label="food" required>
-
-        <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Run Cost Calculation</button>
-      </form>
-    </div>
+              <button class="btn btn-outline-success btn-rounded btn-sm my-0" type="submit">Run Cost Calculation</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
 
 
@@ -36,3 +45,4 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </body>
 </html>
+

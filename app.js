@@ -21,7 +21,7 @@ app.post('/', (req, res) => {
   var college_name_url = encodeURI(req.body.college_name)
   
   getCollegeList.myAxiosCall(college_name_url).then((result) => {
-    if(result == undefined){
+    if(result.all.length == 0){
       res.render('error')
     } else {
       res.render('college', {collegeList: result})
@@ -68,7 +68,8 @@ app.post('/result', (req, res) => {
     total_owed = tuition + living_expenses + books + food
     total = total_owed - scholarship
 
-    return result.push(total)
+    result.push(total)
+    return result
   }
 
   college_cost_calculator(tuition, scholarship, living_expenses, books, food)

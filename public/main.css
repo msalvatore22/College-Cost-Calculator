@@ -3,9 +3,53 @@ body {
 }
 
 .card {
-  margin: 50px 0 0 0;
+  margin: 40px 0 0 0;
+}
+
+summary {
+ margin: 10px 0;
 }
 
 .summary-item {
   margin: 0 20px;
+}
+
+.main-heading {
+  margin: 100px 0 40px 0;
+}
+
+.main-sub-headings {
+  margin-bottom: 20px;
+}
+
+.college-sub-heading {
+  margin-top: 40px;
+}
+
+.search-bar {
+  width: 60%;
+}
+
+.calc-form {
+  width: 100%;
+}
+
+label {
+  margin: 10px 0;
+}
+
+.calc-heading {
+  margin: 40px 0 20px 0;
+}
+
+#food {
+  margin-bottom: 20px;
+}
+
+#search {
+  margin-bottom: 20px;
+}
+
+#nav-search {
+  margin-right: 20px;
 }
