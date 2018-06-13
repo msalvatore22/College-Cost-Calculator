@@ -12,7 +12,6 @@ class CollegeList {
   clearArray() {
     this.all = []
   }
-
 }
 
 class College {
@@ -163,6 +162,8 @@ module.exports.myAxiosCall = (college_name_url) => {
     collegeList.add(college3)
     collegeList.add(college4)
     collegeList.add(college5)
+
+  
 
   return collegeList
 
