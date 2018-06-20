@@ -45,9 +45,9 @@
             <li class="list-group-item summary-item">Median Debt (Family Income 0-$30,000): <%= collegeList.all[i].median_debt_1.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
             <li class="list-group-item summary-item">Median Debt (Family Income $30,001-$75,000): <%= collegeList.all[i].median_debt_2.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
             <li class="list-group-item summary-item">Median Debt (Family Income $75,000+): <%= collegeList.all[i].median_debt_3.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
-            <li class="list-group-item summary-item">Default Rate: <%= collegeList.all[i].default_rate %></li>
-            <li class="list-group-item summary-item">% of Students Receiving a Federal Loan: <%= collegeList.all[i].percent_loan %></li>
-            <li class="list-group-item summary-item last-item">% of Students Receiving a Pell Grant: <%= collegeList.all[i].percent_pell %></li>
+            <li class="list-group-item summary-item">Default Rate: <%= collegeList.all[i].default_rate.toLocaleString("en", {style: "percent"}) %></li>
+            <li class="list-group-item summary-item">% of Students Receiving a Federal Loan: <%= collegeList.all[i].percent_loan.toLocaleString("en", {style: "percent"}) %></li>
+            <li class="list-group-item summary-item last-item">% of Students Receiving a Pell Grant: <%= collegeList.all[i].percent_pell.toLocaleString("en", {style: "percent"}) %></li>
         </details>
         <div class="card-body"> 
           <div class="active-green-3 active-green-4 mb-4">
