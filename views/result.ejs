@@ -13,9 +13,9 @@
           <ul class="list-group">
               <h6 class="card-header">Here is your cost breakdown.</h6>
               <div class="card-body">
-                  <li class="list-group-item first-item">What you will owe each year: <%= result[0] %></li>
-                  <li class="list-group-item">What you will owe after 4 years (without interest): <%= result[0] * 4 %></li>
-                  <li class="list-group-item last-item">Private loan amount (without interest): <%= (result[0] * 4) - 31000 %></li>
+                  <li class="list-group-item first-item">What you will owe each year: <%= result[0].toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+                  <li class="list-group-item">What you will owe after 4 years (without interest): <%= (result[0] * 4).toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+                  <li class="list-group-item last-item">Private loan amount (without interest): <%= ((result[0] * 4) - 31000).toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
               </div>
           </div>
         </div>
