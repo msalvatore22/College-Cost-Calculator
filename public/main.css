@@ -2,8 +2,16 @@ body {
   color: green;
 }
 
+.search-form {
+  margin-top: 40px;
+}
+
+.card:first-of-type {
+  margin: 40px 0 40px 0;
+}
+
 .card {
-  margin: 40px 0 0 0;
+  margin: 0 0 40px 0;
 }
 
 summary {
@@ -35,7 +43,7 @@ summary {
 }
 
 label {
-  margin: 10px 0;
+  margin: 20px 0 10px 0;
 }
 
 .calc-heading {

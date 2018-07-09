@@ -15,13 +15,9 @@ app.set('view engine', 'ejs')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-
 app.use(express.static('public'))
-
 app.use('/', indexRouter);
-
 app.use('/calculation', calculationRouter);
-
 app.use('/result', resultRouter)
 
 function errorHandler (err, req, res, next) {
