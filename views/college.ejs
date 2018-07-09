@@ -21,31 +21,109 @@
             
             <h6 class="card-header">Cost</h6>
             <div class="card-body">
+                
+              <% if(collegeList.all[i].tuition_in != null) { %>
                 <li class="list-group-item first-item">In-State Tuition: <%= collegeList.all[i].tuition_in.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
-                <li class="list-group-item">Out-of-State Tuition: <%= collegeList.all[i].tuition_out.toFixed(2).toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+              <% } else { %>
+                <li class="list-group-item first-item">In-State Tuition: Data Unavailable </li> 
+              <% } %>
+
+              <% if(collegeList.all[i].tuition_out != null) { %>
+                <li class="list-group-item">Out-of-State Tuition: <%= collegeList.all[i].tuition_out.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+              <% } else { %>
+                <li class="list-group-item">Out-of-State Tuition: Data Unavailable </li>
+              <% } %>
+
+              <% if(collegeList.all[i].avg_cost != null){ %>
                 <li class="list-group-item last-item">Average Cost of Attendance: <%= collegeList.all[i].avg_cost.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+              <% } else { %>
+                <li class="list-group-item last-item">Average Cost of Attendance: Data Unavailable </li>
+              <% } %>
+
             </div>
         <details>
           <summary>Demographics</summary>
-              <li class="list-group-item summary-item first-item">Size: <%= collegeList.all[i].size %></li>
-              <li class="list-group-item summary-item">% Women: <%= collegeList.all[i].women.toLocaleString("en", {style: "percent"}) %></li>
-              <li class="list-group-item summary-item last-item">% Men: <%= collegeList.all[i].men.toLocaleString("en", {style: "percent"}) %></li>
+              <% if(collegeList.all[i].size != null) { %>
+                <li class="list-group-item summary-item first-item">Size: <%= collegeList.all[i].size.toLocaleString() %></li>
+              <% } else { %>
+                <li class="list-group-item summary-item">Size: Data Unavailable </li>
+              <% } %>
+              
+              <% if(collegeList.all[i].women != null) { %>
+                <li class="list-group-item summary-item">% Women: <%= collegeList.all[i].women.toLocaleString("en", {style: "percent"}) %></li>
+              <% } else { %>
+                <li class="list-group-item summary-item">% Women: Data Unavailable </li>
+              <% } %> 
+
+              <% if(collegeList.all[i].men != null) { %>
+                <li class="list-group-item summary-item last-item">% Men: <%= collegeList.all[i].men.toLocaleString("en", {style: "percent"}) %></li>
+              <% } else { %>
+                <li class="list-group-item summary-item last-item">% Men: Data Unavailable </li>
+              <% } %>
+              
         </details>
         <details>
             <summary>Admission</summary>
-            <li class="list-group-item summary-item first-item">Admission Rate: <%= collegeList.all[i].admission_rate.toLocaleString("en", {style: "percent"}) %></li>
+            <% if(collegeList.all[i].addmission_rate != null) { %>
+              <li class="list-group-item summary-item first-item">Admission Rate: <%= collegeList.all[i].admission_rate.toLocaleString("en", {style: "percent"}) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">Admission Rate: Data Unavailable </li>
+            <% } %>
+
             <li class="list-group-item summary-item">Average SAT Score: <%= collegeList.all[i].sat %></li>
-            <li class="list-group-item summary-item last-item">Completion Rate: <%= collegeList.all[i].completion_rate.toLocaleString("en", {style: "percent"}) %></li>
+
+            <% if(collegeList.all[i].completion_rate != null){ %>
+              <li class="list-group-item summary-item last-item">Completion Rate: <%= collegeList.all[i].completion_rate.toLocaleString("en", {style: "percent"}) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item last-item">Completion Rate: Data Unavailable </li>
+            <% } %>
+            
+            
         </details>
         <details>
             <summary>Debt</summary>
-            <li class="list-group-item summary-item first-item">Median Loan Principal: <%= collegeList.all[i].loan_principal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
-            <li class="list-group-item summary-item">Median Debt (Family Income 0-$30,000): <%= collegeList.all[i].median_debt_1.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
-            <li class="list-group-item summary-item">Median Debt (Family Income $30,001-$75,000): <%= collegeList.all[i].median_debt_2.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
-            <li class="list-group-item summary-item">Median Debt (Family Income $75,000+): <%= collegeList.all[i].median_debt_3.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
-            <li class="list-group-item summary-item">Default Rate: <%= collegeList.all[i].default_rate.toLocaleString("en", {style: "percent"}) %></li>
-            <li class="list-group-item summary-item">% of Students Receiving a Federal Loan: <%= collegeList.all[i].percent_loan.toLocaleString("en", {style: "percent"}) %></li>
-            <li class="list-group-item summary-item last-item">% of Students Receiving a Pell Grant: <%= collegeList.all[i].percent_pell.toLocaleString("en", {style: "percent"}) %></li>
+            <% if(collegeList.all[i].loan_principal != null) { %>
+              <li class="list-group-item summary-item first-item">Median Loan Principal: <%= collegeList.all[i].loan_principal.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">Median Loan Principal: Data Unavailable</li>
+            <% } %>
+
+            <% if(collegeList.all[i].median_debt_1 != null) { %>
+              <li class="list-group-item summary-item">Median Debt (Family Income 0-$30,000): <%= collegeList.all[i].median_debt_1.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">Median Debt (Family Income 0-$30,000): Data Unavailable</li>
+            <% } %>
+
+            <% if(collegeList.all[i].median_debt_2 != null) { %>
+              <li class="list-group-item summary-item">Median Debt (Family Income $30,001-$75,000): <%= collegeList.all[i].median_debt_2.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">Median Debt (Family Income $30,001-$75,000): Data Unavailable</li>
+            <% } %>
+
+            <% if(collegeList.all[i].median_debt_3 != null) { %>
+              <li class="list-group-item summary-item">Median Debt (Family Income $75,000+): <%= collegeList.all[i].median_debt_3.toLocaleString('en-US', { style: 'currency', currency: 'USD' }) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">Median Debt (Family Income $75,000+): Data Unavailable</li>
+            <% } %>
+
+            <% if(collegeList.all[i].default_rate != null) { %>
+              <li class="list-group-item summary-item">Default Rate: <%= collegeList.all[i].default_rate.toLocaleString("en", {style: "percent"}) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">Default Rate: Data Unavailable</li>
+            <% } %>
+
+            <% if(collegeList.all[i].percent_loan != null) { %>
+              <li class="list-group-item summary-item">% of Students Receiving a Federal Loan: <%= collegeList.all[i].percent_loan.toLocaleString("en", {style: "percent"}) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">% of Students Receiving a Federal Loan: Data Unavailable</li>
+            <% } %>
+
+            <% if(collegeList.all[i].percent_pell != null) { %>
+              <li class="list-group-item summary-item last-item">% of Students Receiving a Pell Grant: <%= collegeList.all[i].percent_pell.toLocaleString("en", {style: "percent"}) %></li>
+            <% } else { %>
+              <li class="list-group-item summary-item first-item">% of Students Receiving a Pell Grant: Data Unavailable</li>
+            <% } %>
+
         </details>
         <div class="card-body"> 
           <div class="active-green-3 active-green-4 mb-4">
