@@ -1,6 +1,8 @@
 const axios = require('axios')
 const api_key = process.env.GOV_DATA_API_KEY
 
+
+
 class CollegeList {
   constructor(){
     this.all = []
@@ -49,7 +51,7 @@ module.exports.myAxiosCall = (college_name_url) => {
   collegeList.clearArray()
 
 
-      response.data.results.forEach(result => {
+      response.data.results.map(result => {
         
         college = new College (
         result.id,
