@@ -1,7 +1,5 @@
 const axios = require('axios')
-const api_key = process.env.GOV_DATA_API_KEY
-
-
+const keys = require('./config/keys')
 
 class CollegeList {
   constructor(){
@@ -46,7 +44,7 @@ class College {
 var collegeList = new CollegeList
 
 module.exports.myAxiosCall = (college_name_url) => {
- return axios.get(`https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=${college_name_url}&_fields=id,school.name,school.state,school.city,2015.student.size,2015.student.demographics.women,2015.student.demographics.men,2015.cost.tuition.in_state,2015.cost.tuition.out_of_state,2015.cost.attendance.academic_year,2015.admissions.admission_rate.overall,2015.admissions.sat_scores.average.overall,2015.completion.rate_suppressed.four_year,2015.repayment.3_yr_default_rate,2015.aid.students_with_any_loan,2015.student.students_with_pell_grant,2015.aid.loan_principal,2015.aid.median_debt.income.0_30000,2015.aid.median_debt.income.30001_75000,2015.aid.median_debt.income.greater_than_75000&api_key=${api_key}`).then((response) => {
+ return axios.get(`https://api.data.gov/ed/collegescorecard/v1/schools.json?school.name=${college_name_url}&_fields=id,school.name,school.state,school.city,2015.student.size,2015.student.demographics.women,2015.student.demographics.men,2015.cost.tuition.in_state,2015.cost.tuition.out_of_state,2015.cost.attendance.academic_year,2015.admissions.admission_rate.overall,2015.admissions.sat_scores.average.overall,2015.completion.rate_suppressed.four_year,2015.repayment.3_yr_default_rate,2015.aid.students_with_any_loan,2015.student.students_with_pell_grant,2015.aid.loan_principal,2015.aid.median_debt.income.0_30000,2015.aid.median_debt.income.30001_75000,2015.aid.median_debt.income.greater_than_75000&api_key=${keys.govData}`).then((response) => {
 
   collegeList.clearArray()
 
