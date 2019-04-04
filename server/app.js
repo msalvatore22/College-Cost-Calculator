@@ -3,7 +3,7 @@ const ejs = require('ejs')
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 const getCollegeList = require('./axios.js')
 
 var indexRouter = require('./routes/index');

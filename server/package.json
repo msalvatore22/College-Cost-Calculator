@@ -8,7 +8,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "start-dev": "./node_modules/.bin/nodemon app.js",
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Michael Salvatore",
@@ -16,6 +18,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "ejs": "^2.6.1",
     "express": "^4.16.3",
     "nodemon": "^1.17.5"
