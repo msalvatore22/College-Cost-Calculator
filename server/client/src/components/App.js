@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { Button } from 'reactstrap';
+import Header from './Header'
 
 class App extends Component {
   render() {
     return (
       <div>
-        <Button color="success">success</Button>
+        <Header />
       </div>
     );
   }
