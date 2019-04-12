@@ -4,7 +4,8 @@ import SearchBar from './SearchBar'
 
 import {
   Collapse, Navbar, Nav,
-  NavbarBrand, NavbarToggler
+  NavbarBrand, NavbarToggler,
+  NavItem, NavLink
 } from 'reactstrap';
 
 class Header extends Component {
@@ -24,12 +25,15 @@ class Header extends Component {
 
   render(){
     return (
-      <header>
+      <header style={{marginBottom: "120px"}}>
         <Navbar fixed="top" color="light" light expand="md" className="border-bottom border-gray bg-light" >
           <NavbarBrand href="/"><img src={logo} /></NavbarBrand> 
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/">Home</NavLink>
+              </NavItem>
               <SearchBar />
             </Nav>
           </Collapse>
