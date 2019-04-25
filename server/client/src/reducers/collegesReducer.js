@@ -1,14 +1,14 @@
 import {FETCH_COLLEGES} from '../actions/types';
 
 const initalState = {
-  colleges: []
+  collegeList: []
 };
 
 export default function(state=initalState, action){
   switch(action.type){
     case FETCH_COLLEGES:
       return Object.assign({}, state, {
-        colleges: action.payload
+        collegeList: action.payload
       })
     default:
       return state

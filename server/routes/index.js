@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
 
 router.post('/api/colleges', (req, res) => {
 var college_name_url = encodeURI(req.body.collegeName)
-console.log(college_name_url)
 
 getCollegeList.myAxiosCall(college_name_url).then((result) => {
   // if(result.all.length == 0){
@@ -16,8 +15,8 @@ getCollegeList.myAxiosCall(college_name_url).then((result) => {
   // } else {
   //   res.render('college', {collegeList: result})
   // }
-  console.log(result)
-  res.send({collegeList: result})
+  
+  res.send(result)
 }).catch((error) => {
   console.log(error)
 })

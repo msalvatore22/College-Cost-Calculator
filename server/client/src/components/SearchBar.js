@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Form, Input, Button } from 'reactstrap';
 import { Field, reduxForm } from 'redux-form';
 import {connect} from 'react-redux';
-import * as actions from "../actions"
+import * as actions from "../actions";
 
 class SearchBar extends Component {
   renderField(field){
@@ -34,8 +34,8 @@ class SearchBar extends Component {
 function validate(values){
   const errors = {}
 
-  if(!values.college_name_url){
-    errors.topic = "Search a college"
+  if(!values.collegeName){
+    errors.collegeName = "Search a college"
   }
 
   return errors;

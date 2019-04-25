@@ -3,14 +3,14 @@ const keys = require('./config/keys')
 
 class CollegeList {
   constructor(){
-    this.all = []
+    this.data = []
   }
   add(college) {
-    this.all.push(college)
+    this.data.push(college)
   } 
   
   clearArray() {
-    this.all = []
+    this.data = []
   }
 }
 
